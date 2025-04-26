@@ -1,0 +1,39 @@
+linters:
+  enable-all: true
+  disable:
+    - tenv
+    - forbidigo
+    - revive
+    - depguard
+    - err113
+    - ireturn
+    - nlreturn
+    - nonamedreturns
+    - wrapcheck
+    - wsl
+    - gochecknoglobals
+    - exhaustive
+    - mnd
+    - gocognit
+    - cyclop
+    - funlen
+    - tagliatelle
+    - dogsled
+    - prealloc
+    - gosmopolitan
+    - errorlint
+
+linters-settings:
+  interfacebloat:
+    max: 2
+
+  varnamelen:
+    max-distance: 32
+
+issues:
+  exclude:
+    - ST1001
+    - ST1003
+    - ST1017
+    - ST1023
+    - G115
