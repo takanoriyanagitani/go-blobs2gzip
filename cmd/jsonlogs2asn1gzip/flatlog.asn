@@ -1,0 +1,50 @@
+FlatLog DEFINITIONS ::= BEGIN
+
+	UnixtimeUs ::= INTEGER
+
+	Severity ::= ENUMERATED {
+		unspecified ( 0),
+		trace       ( 1),
+		debug       ( 5),
+		info        ( 9),
+		warn        (13),
+		error       (17),
+		fatal       (21)
+	}
+
+	KeyValS ::= SEQUENCE {
+		key UTF8String,
+		val UTF8String
+	}
+
+	KeyValI ::= SEQUENCE {
+		key UTF8String,
+		val INTEGER
+	}
+
+	KeyValB ::= SEQUENCE {
+		key UTF8String,
+		val BOOLEAN
+	}
+
+	Attributes ::= SEQUENCE {
+		strs  SEQUENCE OF KeyValS,
+		ints  SEQUENCE OF KeyValI,
+		bools SEQUENCE OF KeyValB
+	}
+
+	Resource ::= SEQUENCE {
+		strs  SEQUENCE OF KeyValS,
+		ints  SEQUENCE OF KeyValI,
+		bools SEQUENCE OF KeyValB
+	}
+
+	LogItem ::= SEQUENCE {
+		timestamp  UnixtimeUs,
+		severity   Severity,
+		message    UTF8String,
+		resource   Resource,
+		attributes Attributes
+	}
+
+END
